@@ -160,17 +160,17 @@ p{
 
 }
 .title-goicuoc{
-  color: red;
+  color: white;
 
 }
 @media screen and (max-width: 1200px) {
   .banggoicuoc{
     position: relative;
-    width:100%;
-    top: 5%;
+    width:80%;
+    top:5%;
 
     text-align: center;
-    margin: 250px auto 50px auto;
+    margin: 50px auto 20px auto;
     padding-right: 0;
   }
 #navbar{
