@@ -37,7 +37,7 @@ class GoiCuoc(db.Model):
     nhom = db.Column(db.String(250), nullable=True)
     loai = db.Column(db.String(250), nullable=False)
 
-db.create_all()
+# db.create_all()
 
 class ShowSimTT(FlaskForm):
     hoten = StringField('Họ tên:', validators=[DataRequired()])
