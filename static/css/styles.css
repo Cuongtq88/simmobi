@@ -157,9 +157,11 @@ p{
   text-align: center;
   margin-left: 2%;
   padding-right: 3%;
+
 }
 .title-goicuoc{
-  color: white;
+  color: red;
+
 }
 @media screen and (max-width: 1200px) {
   .banggoicuoc{
@@ -168,7 +170,7 @@ p{
     top: 5%;
 
     text-align: center;
-    margin: auto;
+    margin: 250px auto 50px auto;
     padding-right: 0;
   }
 #navbar{
