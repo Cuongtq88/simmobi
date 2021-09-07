@@ -161,7 +161,7 @@ p{
 }
 .title-goicuoc{
   color: white;
-  font-size: 3rem;
+  font-size: 1rem;
 
 }
 @media screen and (max-width: 1200px) {
@@ -173,6 +173,9 @@ p{
     text-align: center;
     margin: 50px auto 20px auto;
     padding-right: 0;
+  }
+   .title-goicuoc{
+      font-size: 1.3rem;
   }
 #navbar{
 position:fixed;
