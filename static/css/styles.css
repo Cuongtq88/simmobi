@@ -28,7 +28,7 @@ h1{
   margin: auto;
   margin-top: 1%;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 360px) {
 
   .bang-tt{
   font-size: 2rem;
