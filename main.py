@@ -60,7 +60,7 @@ def show_tt():
         print(password)
         your_email = "cuongtq88@gmail.com"
 
-        with smtplib.SMTP("smtp.gmail.com") as conection:
+        with smtplib.SMTP("smtp.gmail.com",587) as conection:
 
             msg = f"Khách hàng {form.hoten.data} \nĐịa chỉ {form.diachi.data} \nSố liên hệ {form.solienhe.data} \nSố mua {stb} \nGiá {gia}"
             subject = "Đơn hàng"
