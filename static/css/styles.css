@@ -27,14 +27,14 @@ h1{
   width: 500px;
   margin: auto;
   margin-top: 1%;
-  background-color: blue;
 }
-@media screen and (max-width: 320px) {
-
-  .bang-tt{
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+.bang-tt{
   font-size: 2rem;
-   background-color:blue;
-  }
+}
 }
 .row{
   margin: auto;
