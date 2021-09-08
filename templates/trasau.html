@@ -87,13 +87,13 @@
     </table>
     <form>
     <nav aria-label="Page navigation example">
-  <ul class="pagination">
+  <ul class="container pagination">
     {% if all_sim_ts.has_prev %}
       <li class="page-item"><a class="page-link" href="{{ url_for('trasau', page=all_sim_ts.prev_num, dangso=dangso, socantim=socantim) }}">Previous</a></li>
     {% else %}
       <li class="page-item"><a class="page-link" href="">Previous</a></li>
     {% endif %}
-    {% for page in all_sim_ts.iter_pages(left_edge=3, right_edge=3) %}
+    {% for page in all_sim_ts.iter_pages(left_edge=-1, right_edge=1) %}
      {% if page %}
         {% if page==all_sim_ts.page %}
           <li class="page-item active" ><a class="page-link" href="{{ url_for('trasau', page=page, dangso=dangso, socantim=socantim) }}" >{{ page }}</a></li>

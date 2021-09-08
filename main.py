@@ -182,7 +182,7 @@ def trasau(page):
         return render_template('trasau.html', all_sim_ts=all_sim, dangso=dangso, socantim = socantim)
     dangso = request.args.get('dangso')
     socantim = request.args.get('socantim')
-    print(dangso)
+
     if dangso != "" and dangso !=None and dangso != "All":
         all_sim = SimSoTraSau.query.filter_by(dangso=dangso).paginate(page, pages, error_out=False)
         return render_template('trasau.html', all_sim_ts=all_sim, dangso=dangso)

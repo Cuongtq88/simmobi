@@ -28,7 +28,7 @@ h1{
     margin: 5px 3px 5px 3px;
 }
 .bang-tt{
-  width: 500px;
+  width: 45%;
   margin: auto;
   margin-top: 1%;
 }
@@ -38,6 +38,7 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) {
 .bang-tt{
   font-size: 2rem;
+  width: 100%;
 }
 .title-goicuoc{
     font-size: 2rem;
@@ -95,8 +96,9 @@ and (max-device-width : 480px) {
   padding-right: 40px;
 }
 .pagination{
-  width: 100px;
+
   margin-left: 5%;
+  background-color: blue;
   margin-top: 20px;
 }
 .container{
