@@ -38,7 +38,8 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) {
 .bang-tt{
   font-size: 1rem;
-  width: 60%;
+  width: 100%;
+  margin:auto;
 }
 .title-goicuoc{
     font-size: 2rem;
@@ -196,6 +197,11 @@ p{
    .title-goicuoc{
       font-size: 1.3rem;
   }
+  .bang-tt{
+  font-size: 1rem;
+  width: 100%;
+  margin:auto;
+}
 
 #navbar{
 position:fixed;
