@@ -8,7 +8,7 @@ import smtplib
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY","8BYkE123fBA6O6donzWlSihBXox7C0sKR6b")
 Bootstrap(app)
 
 ##CONNECT TO DB
@@ -50,13 +50,13 @@ def show_tt():
     form = ShowSimTT()
     stb = request.args.get('stb')
     gia = request.args.get('gia')
-    print(stb)
+    # print(stb)
     if form.validate_on_submit():
         stb = request.args.get('stb')
         gia = request.args.get('gia')
 
         my_email = "cuongpython2021@gmail.com"
-        password = os.environ.get("MK")
+        password = os.environ.get("NEW_MK")
         print(password)
         your_email = "cuongtq88@gmail.com"
 
@@ -76,9 +76,6 @@ def show_tt():
     return render_template('dathangtt.html', form =form, stb=stb, gia=gia)
 @app.route('/')
 def home():
-    # os.environ["MK"] = "NguyenThiCuc@8383"
-    print(os.environ.get("MAT_KHAU"))
-
     return render_template('index.html')
 
 @app.route('/chotdontt')
@@ -93,7 +90,6 @@ def tracuu():
 @app.route('/tratruoc/<int:page>',methods=["GET","POST"])
 def tratruoc(page):
     page = page
-    print(page)
     pages = 10
     all_sim = SimSo.query.paginate(page,pages,error_out=False)
     if request.method == 'POST' and 'cars' in request.form and 'socantim' in request.form:
