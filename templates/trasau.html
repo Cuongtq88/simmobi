@@ -85,9 +85,9 @@
 
       </tbody>
     </table>
-    <form>
-    <nav aria-label="Page navigation example">
-  <ul class="container pagination">
+
+    <nav aria-label="Page-navigation example">
+  <ul class="pagination">
     {% if all_sim_ts.has_prev %}
       <li class="page-item"><a class="page-link" href="{{ url_for('trasau', page=all_sim_ts.prev_num, dangso=dangso, socantim=socantim) }}">Previous</a></li>
     {% else %}
@@ -112,10 +112,9 @@
     {% endif %}
   </ul>
 </nav>
-      </form>
+
 
   </div>
-
 
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
