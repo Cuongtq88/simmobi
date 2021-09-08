@@ -85,6 +85,7 @@ and (max-device-width : 480px) {
   color: blue;
   font-weight: bolder;
   font-size: 1rem;
+   text-align: center;
 }
 
 .chonsim{
@@ -170,6 +171,7 @@ p{
   position:fixed;
   width:30%;
   top: 52%;
+  height: 700px;
   left:0px;
   text-align: center;
   margin-left: 2%;
@@ -194,13 +196,15 @@ p{
    .title-goicuoc{
       font-size: 1.3rem;
   }
-  }
+
 #navbar{
 position:fixed;
 top: 0px;
 }
 
-
+.dongchonso{
+    text-align: center;
+}
 
 
 
