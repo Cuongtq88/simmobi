@@ -25,6 +25,7 @@ h1{
 }
 .page-item{
     width: 100px;
+    margin: 5px 3px 5px 3px;
 }
 .bang-tt{
   width: 500px;
@@ -39,7 +40,7 @@ and (max-device-width : 480px) {
   font-size: 2rem;
 }
 .title-goicuoc{
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 }
