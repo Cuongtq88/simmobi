@@ -23,6 +23,9 @@ h1{
   font-size: 2rem;
 
 }
+.page-item{
+    width: 100px;
+}
 .bang-tt{
   width: 500px;
   margin: auto;
@@ -35,6 +38,10 @@ and (max-device-width : 480px) {
 .bang-tt{
   font-size: 2rem;
 }
+.title-goicuoc{
+    font-size: 1.5rem;
+}
+
 }
 .row{
   margin: auto;
@@ -89,6 +96,7 @@ and (max-device-width : 480px) {
 .pagination{
   width: 100px;
   margin-left: 5%;
+  margin-top: 20px;
 }
 .container{
   position: relative;
