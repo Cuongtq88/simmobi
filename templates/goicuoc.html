@@ -56,7 +56,7 @@
 <form>
     <div class="vung-paganation">
     <nav aria-label="Page navigation example">
-  <ul class="pagination">
+  <ul class="pagination justify-content-center">
     {% if all_goi.has_prev %}
       <li class="page-item"><a class="page-link" href="{{ url_for('goicuoc', page=all_goi.prev_num, loaigoi=loaigoi) }}">Previous</a></li>
     {% else %}

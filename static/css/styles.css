@@ -43,11 +43,7 @@ and (max-device-width : 480px) {
 .title-goicuoc{
     font-size: 2rem;
 }
-.abc{
-position: relative;
-left: 10%;
 
-}
 }
 .row{
   margin: auto;
@@ -206,11 +202,7 @@ top: 0px;
 
 
 
-.abc{
-position: relative;
-left: 30%;
 
-}
 
 
 
