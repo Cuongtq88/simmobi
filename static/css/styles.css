@@ -44,6 +44,7 @@ and (max-device-width : 480px) {
     font-size: 2rem;
 }
 .abc{
+position: relative;
 left: 10%;
 
 }
@@ -99,8 +100,6 @@ left: 10%;
   padding-right: 40px;
 }
 .pagination{
-
-
 
   margin-top: 20px;
 }
