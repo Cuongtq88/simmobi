@@ -27,6 +27,7 @@ h1{
   width: 500px;
   margin: auto;
   margin-top: 1%;
+  background-color: blue;
 }
 @media screen and (max-width: 320px) {
 
