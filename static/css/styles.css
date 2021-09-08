@@ -28,11 +28,11 @@ h1{
   margin: auto;
   margin-top: 1%;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 320px) {
 
   .bang-tt{
   font-size: 2rem;
-
+   background-color:blue;
   }
 }
 .row{
