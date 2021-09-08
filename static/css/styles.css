@@ -24,7 +24,7 @@ h1{
 
 }
 .page-item{
-    width: 100px;
+
     margin: 5px 3px 5px 3px;
 }
 .bang-tt{
@@ -43,7 +43,10 @@ and (max-device-width : 480px) {
 .title-goicuoc{
     font-size: 2rem;
 }
+.abc{
+left: 10%;
 
+}
 }
 .row{
   margin: auto;
@@ -97,8 +100,8 @@ and (max-device-width : 480px) {
 }
 .pagination{
 
-  margin-left: 5%;
-  width: 10%;
+
+
   margin-top: 20px;
 }
 .container{
@@ -196,16 +199,19 @@ p{
    .title-goicuoc{
       font-size: 1.3rem;
   }
+  }
 #navbar{
 position:fixed;
 top: 0px;
 }
 
+
+
 .abc{
-width: 20%;
+position: relative;
+left: 30%;
+
 }
-
-
 
 
 

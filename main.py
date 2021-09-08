@@ -145,8 +145,6 @@ def trasau(page):
     if request.method == 'POST' and 'cars' in request.form and 'socantim' in request.form:
         socantim = request.form["socantim"]
         dangso = request.form["cars"]
-        print(dangso)
-        print(socantim)
 
         if dangso == "All" and socantim !="":
 
