@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Chuyên cung cấp sim số đẹp - Gói cước giá rẻ</title>
    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='4G.ico') }}">
   <!-- Font Awesome -->
   <script type="text/javascript" src="http://livejs.com/live.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -108,13 +109,17 @@
 
   </div>
 
-  <div class="footer">
-    <h3>Thông tin liên hệ</h3>
-    <p>Số điện thoại: 0939988383</p>
-    <p>Gmail: cuongtq88@gmail.com</p>
-    <p>Zalo: 0939988383</p>
-    <a href="https://www.facebook.com/cuong.tranquoc.73/"> <p>Facebook: cuongtq88@gmail.com</p></a>
-  </div>
+ <div class="row footer">
+  <div class="col-lg-12">
+  <h5>Contact</h5>
+
+    <a href="https://www.facebook.com/cuong.tranquoc.73/"> <i class="fab fa-facebook fa-3x " id="icon-fb"></i></a>
+    <img src="{{ url_for('static', filename='zalopng.png') }}" id="icon-zalo">
+    <i class="fas fa-envelope fa-3x"id="icon-mail"></i>
+    </div>
+
+
+</div>
 
   <!-- Băng Chuyền -->
 
