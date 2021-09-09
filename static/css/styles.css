@@ -73,7 +73,7 @@ and (max-device-width : 480px) {
 }
 
 .footer{
-  position: relative;
+
   background-color: #F8F8F8;
     text-align: center;
   font-size: 0.9rem;
@@ -184,7 +184,7 @@ color: #4682B4;
   position:fixed;
   width:30%;
   top: 52%;
-  height: 700px;
+  height: auto;
   left:0px;
   text-align: center;
   margin-left: 2%;
@@ -214,7 +214,7 @@ color: #4682B4;
   width: 100%;
   margin:auto;
 }
-
+}
 #navbar{
 position:fixed;
 top: 0px;
