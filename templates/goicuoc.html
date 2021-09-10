@@ -12,18 +12,13 @@
 <div class="container ">
  <form class="timgoi" action="{{ url_for('goicuoc') }}" method="post">
       <div class="col-lg-12 vung-tracuugoi">
-
-          <label for=""class="chongoi">Tìm Gói</label>
-          <input type="text" size="4" name="goicantim" value="" class="btn-timso">
-
     <label for="loaigoi" class="chongoi">Chọn Loại Gói</label>
-
     <select name="loaigoi" id="loaigoi">
       <option  value="{{ loaigoi }}">{{ loaigoi }}</option>
       <option value="Phổ Biến">Phổ Biến</option>
-      <option value="Gói Dài Kỳ">Gói Dài Kỳ</option>
-      <option value="Gói Tháng">Gói Tháng</option>
-      <option value="Gói Ngày">Gói Ngày</option>
+      <option value="Gói Dài Kỳ">Gói Dài Kỳ</option>
+      <option value="Gói Tháng">Gói Tháng</option>
+
 
     </select>
       <button type="submit" class="btn btn-success">Tìm Kiếm</button><br>
@@ -35,8 +30,8 @@
       <div class="goicuoc">
 
         <div class="title-goi">
-          <span class="tengoi">{{ goi.tengoi }}</span><br>
-          <span class="giagoi">{{ goi.gia }}/ Tháng</span><br>
+          <span class="tengoi">{{ goi.tengoi }}-{{goi.ngaysudung}} Ngày</span><br>
+          <span class="giagoi">{{ '{:,}'.format(goi.gia).replace(',', '.') }}/ lần đăng ký</span><br>
         </div>
         <div class="uudaigoi">
           <span >{{ goi.uudaichinh }}</span><br>
@@ -47,6 +42,11 @@
           <span><i class="fas fa-check icon-check"></i> {{ goi.uudaithoai }}</span><br>
             {% endif %}
         </div>
+          {% if goi.giamgia  %}
+
+          <div class=""><h3 style="color:red">Giảm giá: {{ (goi.giamgia * 100)|round|int}}%</h3></div>
+          <div class=""><h3 style="color:red">Chỉ Còn: {{'{:,}'.format(goi.gia - (goi.gia * goi.giamgia)|round|int).replace(',', '.') }}</h3></div>
+          {% endif %}
         <div class="datmua">
           <button type="submit" name="button" class="btn btn-success btn-datmua">Đặt Mua</button>
         </div>

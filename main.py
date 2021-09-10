@@ -32,11 +32,14 @@ class GoiCuoc(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tengoi = db.Column(db.String(250), nullable=False)
     gia = db.Column(db.Integer, nullable=False)
+    ngaysudung = db.Column(db.Integer, nullable=False)
+    giamgia = db.Column(db.Float, nullable=True)
     uudaichinh = db.Column(db.String(1000), nullable=False)
     uudaidata = db.Column(db.String(500), nullable=True)
     uudaithoai = db.Column(db.String(1000), nullable=True)
     nhom = db.Column(db.String(250), nullable=True)
     loai = db.Column(db.String(250), nullable=False)
+    khuyenmai = db.Column(db.String(250), nullable=True)
 
 # db.create_all()
 
@@ -199,14 +202,14 @@ def trasau(page):
 def goicuoc(page):
     page = page
     pages = 6
-    all_goi = GoiCuoc.query.filter_by(nhom="Phổ Biến").paginate(page, pages, error_out=False)
+    all_goi = GoiCuoc.query.filter_by(khuyenmai="sales").paginate(page, pages, error_out=False)
     if request.method == 'POST' and 'loaigoi' in request.form:
         loaigoi = request.form["loaigoi"]
         print(loaigoi)
         all_goi = GoiCuoc.query.filter_by(loai=loaigoi).paginate(page, pages, error_out=False)
         return render_template('goicuoc.html', all_goi=all_goi, loaigoi=loaigoi)
     loaigoi = request.args.get('loaigoi')
-    print(loaigoi)
+
     if loaigoi != "" and loaigoi !=None:
         print("aaa")
         all_goi = GoiCuoc.query.filter_by(loai=loaigoi).paginate(page, pages, error_out=False)
