@@ -44,6 +44,7 @@ and (max-device-width : 480px) {
 .banggoicuoc{
     width: 100%
     left: 0px;
+    position: relative;
     background-color: yellow;
 }
 .title-goicuoc{
