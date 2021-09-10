@@ -43,7 +43,7 @@ and (max-device-width : 480px) {
 }
 .banggoicuoc{
     width: 100%
-    text-align: left;
+    text-align: center;
 }
 .title-goicuoc{
     font-size: 2rem;
@@ -191,7 +191,7 @@ color: #4682B4;
   width:30%;
    top: 17%;
   height: auto;
-  left:20px;
+  left:0px;
   text-align: center;
   margin:10% auto 5% auto;
   padding-right: 3%;
@@ -213,9 +213,10 @@ color: #4682B4;
     top:5%;
     font-size: 12px;
     bottom: 5%;
-    text-align: left;
+    text-align: center;
     margin: 50px 0px 20px 0px;
     padding-right: 0;
+    padding-left: 0;
   }
    .title-goicuoc{
       font-size: 1.3rem;
