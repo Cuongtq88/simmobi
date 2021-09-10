@@ -24,6 +24,7 @@ class SimSo(db.Model):
 class SimSoTraSau(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sothuebao = db.Column(db.String(250), nullable=False)
+    sodinhdang = db.Column(db.String(250), nullable=False)
     goicuoc = db.Column(db.String(250), nullable=False)
     dangso = db.Column(db.String(250), nullable=False)
 
