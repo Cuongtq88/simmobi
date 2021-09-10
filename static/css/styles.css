@@ -41,6 +41,10 @@ and (max-device-width : 480px) {
   width: 100%;
   margin:auto;
 }
+.banggoicuoc{
+    width: 100%
+    margin: auto;
+}
 .title-goicuoc{
     font-size: 2rem;
 }
