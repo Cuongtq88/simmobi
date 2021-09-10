@@ -205,8 +205,10 @@ def goicuoc(page):
     all_goi = GoiCuoc.query.filter_by(khuyenmai="sales").paginate(page, pages, error_out=False)
     if request.method == 'POST' and 'loaigoi' in request.form:
         loaigoi = request.form["loaigoi"]
-        print(loaigoi)
-        all_goi = GoiCuoc.query.filter_by(loai=loaigoi).paginate(page, pages, error_out=False)
+        if loaigoi != "Phổ Biến":
+            all_goi = GoiCuoc.query.filter_by(loai=loaigoi).paginate(page, pages, error_out=False)
+        else:
+            all_goi = GoiCuoc.query.filter_by(nhom="Phổ Biến").paginate(page, pages, error_out=False)
         return render_template('goicuoc.html', all_goi=all_goi, loaigoi=loaigoi)
     loaigoi = request.args.get('loaigoi')
 
