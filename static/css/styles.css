@@ -42,8 +42,9 @@ and (max-device-width : 480px) {
   margin:auto;
 }
 .banggoicuoc{
-    width: 80%
-    margin: auto;
+    width: 100%
+    left: 0px;
+    background-color: yellow;
 }
 .title-goicuoc{
     font-size: 2rem;
