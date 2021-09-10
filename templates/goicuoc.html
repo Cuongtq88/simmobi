@@ -45,8 +45,9 @@
           {% if goi.giamgia  %}
 
           <div class=""><h3 style="color:red">Giảm giá: {{ (goi.giamgia * 100)|round|int}}%</h3></div>
-          <div class=""><h3 style="color:red">Chỉ Còn: {{'{:,}'.format(goi.gia - (goi.gia * goi.giamgia)|round|int).replace(',', '.') }}</h3></div>
+          <div class=""><h3 style="color:red; font-weight: bold">Chỉ Còn: {{'{:,}'.format(goi.gia - (goi.gia * goi.giamgia)|round|int).replace(',', '.') }}</h3></div>
           {% endif %}
+          <div class=""><h3 style="color:green">Quà Tặng: {{ goi.quatang}}</h3></div>
         <div class="datmua">
           <button type="submit" name="button" class="btn btn-success btn-datmua">Đặt Mua</button>
         </div>

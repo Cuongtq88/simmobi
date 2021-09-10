@@ -40,7 +40,7 @@ class GoiCuoc(db.Model):
     nhom = db.Column(db.String(250), nullable=True)
     loai = db.Column(db.String(250), nullable=False)
     khuyenmai = db.Column(db.String(250), nullable=True)
-
+    quatang = db.Column(db.String(250), nullable=True)
 # db.create_all()
 
 class ShowSimTT(FlaskForm):
