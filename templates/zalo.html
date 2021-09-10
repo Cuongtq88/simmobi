@@ -1,0 +1,20 @@
+{% include "header.html" %}
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+  <title>Sim Số Đẹp 0 Đồng</title>
+  <link href="{{ url_for('static', filename='css/styles1.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script type="text/javascript" src="http://livejs.com/live.js"></script>
+</head>
+<body>
+<div class="lienhe">
+<h3>Quý khách quét mã Qr-Code để liên hệ</h3>
+<img src="{{ url_for('static', filename='zalo.jpg')}}" id="lienhe-zalo">
+  <h4>Hoặc kết bạn Zalo theo số điện thoại: 0939988383</h4>
+  </div>
+</body>
+
+{% include "footer.html" %}
+</html>

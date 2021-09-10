@@ -86,3 +86,18 @@
 .btn-datmua{
 margin-bottom: 10px;
 }
+
+#lienhe-zalo{
+    width: 300px;
+    margin-top: 50px;
+}
+.lienhe h3{
+color: red;
+}
+.lienhe h4{
+color: blue;
+}
+.lienhe{
+    text-align: center;
+    padding: 30px;
+}

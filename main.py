@@ -77,6 +77,9 @@ def show_tt():
 @app.route('/')
 def home():
     return render_template('index.html')
+@app.route('/zalo')
+def contact():
+    return render_template('zalo.html')
 
 @app.route('/chotdontt')
 def chotdontt():
