@@ -107,6 +107,7 @@ and (max-device-width : 480px) {
   position: relative;
   text-align: center;
   margin-top: 2%;
+
 }
 .middle{
   position: relative;
@@ -184,11 +185,11 @@ color: #4682B4;
 .banggoicuoc{
   position:fixed;
   width:30%;
-  top: 52%;
+   top: 17%;
   height: auto;
-  left:0px;
+  left:20px;
   text-align: center;
-  margin-left: 2%;
+  margin:10% auto 5% auto;
   padding-right: 3%;
 
 }
@@ -196,6 +197,10 @@ color: #4682B4;
   color: white;
   font-size: 1rem;
 
+}
+.goidb{
+    color: blue;
+    font-weight: bold;
 }
 @media screen and (max-width: 1200px) {
   .banggoicuoc{
