@@ -44,7 +44,7 @@
       <tbody>
         {% for sim in all_sim.items %}
         <tr>
-          <th scope="row">{{sim.id}}</th>
+          <th scope="row">{{loop.index}}</th>
           <td class="stb">{{ sim.sothuebao }}</td>
           <td class="price">{{ sim.gia }}</td>
           <td><a href="{{url_for('show_tt', stb=sim.sothuebao, gia = sim.gia) }}"><button type="submit" class="btn btn-primary btn-sm">Đặt Mua </button></a></td>

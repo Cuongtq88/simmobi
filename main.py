@@ -152,7 +152,7 @@ def tratruoc(page):
         page = 1
         dangso = request.form["cars"]
         socantim = request.form["socantim"]
-        dangso_ts = SimSoTraSau.query.filter_by(dangso=dangso).all()
+        dangso_ts = SimSo.query.filter_by(dangso=dangso).all()
         print("xxx")
         print(dangso_ts)
         if dangso != "All" and socantim == "":
@@ -187,7 +187,7 @@ def trasau(page):
 
     page = page
     pages = 10
-    all_sim = SimSoTraSau.query.paginate(page,pages,error_out=False)
+    all_sim = SimSoTraSau.query.filter_by(dangso="09").paginate(page, pages, error_out=False)
 
 
     if request.method == 'POST' and 'cars' in request.form and 'socantim' in request.form:
