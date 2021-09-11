@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+  <title></title>
+  <link href="{{ url_for('static', filename='css/styles1.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href="https: //fonts.googleapis.com/css2? family = Merriweather & display = swap " rel=" stylesheet ">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="banggoicuoc-dt">
+
+  <table class="table table-sm table-bordered table-striped table-1">
+<thead>
+  <tr class="bg-primary title-goicuoc">
+    <td>Gói Cước</td>
+    <td>Giá</td>
+    <td>Data</td>
+    <td>Thoại NM</td>
+    <td>Thoại LM</td>
+  </tr>
+</thead>
+<tbody>
+    <tr>
+     <td>MF99</td>
+     <td>99.000đ/tháng</td>
+     <td>5GB</td>
+      <td>1.000</td>
+      <td>40</td>
+   </tr>
+      <tr>
+     <td>MF149</td>
+     <td>149.000đ/tháng</td>
+     <td>8GB</td>
+      <td>1.500</td>
+      <td>80</td>
+   </tr>
+    <tr class="goidb">
+     <td>MF150</td>
+     <td>150.000đ/tháng</td>
+     <td>4GB/ Ngày</td>
+      <td>1.000</td>
+      <td>200</td>
+   </tr>
+      <tr>
+     <td>MF199</td>
+     <td>199.000đ/tháng</td>
+     <td>9GB</td>
+      <td>1.500</td>
+      <td>160</td>
+   </tr>
+        <tr class="goidb">
+     <td>MF200</td>
+     <td>200.000đ/tháng</td>
+     <td>4GB/ Ngày</td>
+      <td>1.000</td>
+      <td>300</td>
+   </tr>
+        <tr class="goidb">
+     <td>MF250</td>
+     <td>250.000đ/tháng</td>
+     <td>4GB/ Ngày</td>
+      <td>1.000</td>
+      <td>400</td>
+   </tr>
+         <tr class="goidb">
+     <td>MF300</td>
+     <td>300.000đ/tháng</td>
+     <td>4GB/ Ngày</td>
+      <td>1.000</td>
+      <td>500</td>
+   </tr>
+  <tr>
+     <td>MF299</td>
+     <td>299.000đ/tháng</td>
+     <td>12GB</td>
+      <td>2.000</td>
+      <td>300</td>
+   </tr>
+      <tr>
+     <td>MF399</td>
+     <td>399.000đ/tháng</td>
+     <td>17GB</td>
+      <td>3.000</td>
+      <td>400</td>
+   </tr>
+<tr>
+     <td>MF499</td>
+     <td>499.000đ/tháng</td>
+     <td>22GB</td>
+      <td>4.000</td>
+      <td>500</td>
+   </tr>
+ </tbody>
+</table>
+</div>
+  <div class="container container-dathang">
+
+      <div class="vungdathangts">
+    <h2>Thông Tin Đơn Hàng</h2>
+    <p>Bạn đặt mua số <span class="stb">{{ stb}}</span></p>
+    <p>Gói Cước <span class="stb">{{ goicuoc}}</span></p>
+    <p>Phí Hòa Mạng <span class="stb">60.000đ</span></p>
+      </div>
+        <div class="vungdathangts-1">
+             <form class="" action="{{ url_for('show_ts', stb = stb, goicuoc= goicuoc) }}" method="POST">
+      <div class="row row-ts no-gutters">
+          <div class="col-lg-6  cotdathangts">
+
+            {{ wtf.quick_form(form) }}
+          <button type="submit" class="btn btn-primary" value="dathangts">Đặt Hàng</button>
+          </form>
+          </div>
+    </div>
+            </div>
+      </div>
+</body>
+{% include "footer.html" %}
+</html>

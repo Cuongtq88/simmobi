@@ -3,7 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired, URL
+from wtforms.validators import DataRequired, URL, Optional
 import smtplib
 import os
 
@@ -48,7 +48,11 @@ class ShowSimTT(FlaskForm):
     diachi = StringField('Địa chỉ:', validators=[DataRequired()])
     solienhe = StringField('Số điện thoại:', validators=[DataRequired()])
 
-
+class ShowSimTS(FlaskForm):
+    hoten = StringField('Họ tên:', validators=[DataRequired()])
+    diachi = StringField('Địa chỉ:', validators=[DataRequired()])
+    solienhe = StringField('Số điện thoại:', validators=[DataRequired()])
+    goicuoc = StringField('Quý khách Chọn Gói Cước Nào', validators=[Optional()])
 @app.route('/tratruoc/dathang',methods=["GET","POST"])
 def show_tt():
     form = ShowSimTT()
@@ -61,7 +65,7 @@ def show_tt():
 
         my_email = "cuongpython2021@gmail.com"
         password = os.environ.get("NEW_MK")
-        print(password)
+
         your_email = "cuongtq88@gmail.com"
 
         with smtplib.SMTP("smtp.gmail.com",587) as conection:
@@ -217,5 +221,33 @@ def goicuoc(page):
         all_goi = GoiCuoc.query.filter_by(loai=loaigoi).paginate(page, pages, error_out=False)
         return render_template('goicuoc.html', all_goi=all_goi, loaigoi=loaigoi)
     return render_template('goicuoc.html', all_goi=all_goi)
+
+@app.route('/trasau/dathangts',methods=["GET","POST"])
+def show_ts():
+    form = ShowSimTS()
+    stb = request.args.get('stb')
+    goicuoc = request.args.get('goicuoc')
+    print("xxx")
+    if form.validate_on_submit():
+        stb = request.args.get('stb')
+        goicuoc = request.args.get('goicuoc')
+        print(goicuoc)
+        my_email = "cuongpython2021@gmail.com"
+        password = os.environ.get("NEW_MK")
+
+        your_email = "cuongtq88@gmail.com"
+
+        with smtplib.SMTP("smtp.gmail.com",587) as conection:
+
+            msg = f"Khách hàng {form.hoten.data} \nĐịa chỉ {form.diachi.data} \nSố liên hệ {form.solienhe.data} \nSố mua {stb} \nGói Cước {goicuoc}"
+            subject = "Đơn hàng Trả Sau"
+            conection.starttls()
+            conection.login(my_email, password)
+            # conection.sendmail(from_addr= my_email, to_addrs=your_email,
+            #                    msg=f"Subject:Hello \n\n {ten} ")
+            fmt = 'From: {}\r\nTo: {}\r\nSubject: {}\r\n{}'
+            conection.sendmail(my_email, your_email,fmt.format(my_email,your_email,subject,msg).encode('utf-8'))
+        return redirect(url_for('chotdontt'))
+    return render_template('dathangts.html', stb= stb, goicuoc=goicuoc, form=form)
 if __name__ == "__main__":
     app.run(debug=True)

@@ -19,10 +19,10 @@
 
 <body>
     <div class="container bangdathang">
-        <h2>Thông tin đặt hàng</h2>
+        <h2>Thông tin đơn hàng</h2>
         <p>Bạn đặt mua số <span class="stb">{{ stb}}</span> với giá <span class="stb">{{gia}}</span>  </p>
         <form class="" action="{{ url_for('show_tt', stb = stb, gia= gia) }}" method="POST">
-    <div class="row dongdathang">
+    <div class="row dongdathang no-gutters">
       <div class="col-lg-4 cotdathang">
          {{ wtf.quick_form(form) }}
           <button type="submit" class="btn btn-primary" value="dathang">Đặt Hàng</button>

@@ -59,7 +59,7 @@
           <th scope="row">{{loop.index}}</th>
           <td class="stb">{{ sim.sodinhdang }}</td>
           <td class="price">{{ sim.goicuoc }}</td>
-          <td><a href=""><button type="submit" class="btn btn-primary btn-sm">Đặt Mua </button></a></td>
+          <td><a href="{{url_for('show_ts', stb=sim.sodinhdang, goicuoc = sim.goicuoc) }}"><button type="submit" class="btn btn-primary btn-sm">Đặt Mua </button></a></td>
         </tr>
       {% endfor %}
 

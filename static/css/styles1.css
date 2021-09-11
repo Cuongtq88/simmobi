@@ -102,3 +102,56 @@ color: blue;
     text-align: center;
     padding: 30px;
 }
+.banggoicuoc-dt{
+  position:fixed;
+  width:30%;
+   top: 15%;
+  height: auto;
+  left:20px;
+  text-align: center;
+  margin:10% auto 5% auto;
+  padding-right: 3%;
+
+}
+.vungdathangts{
+    border-style: inset;
+    width: 50%;
+    margin: 20px auto 20px auto;
+}
+.vungdathangts-1{
+    width: 50%;
+    background-color: #F3F0D7;
+    margin: auto;
+}
+@media screen and (max-width: 1200px) {
+  .banggoicuoc-dt{
+    position: relative;
+    width:100%;
+    top:5%;
+    font-size: 12px;
+    bottom: 5%;
+    left: 0px;
+    text-align: center;
+    margin: 50px 0px 20px 0px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+   .title-goicuoc{
+      font-size: 1.3rem;
+  }
+  .vungdathangts{
+    width: 100%;
+
+  }
+  .vungdathangts-1{
+    width: 100%;
+  }
+  }
+
+.cotdathangts{
+  padding: 2% 20%;
+  margin: 1% auto;
+
+}
+
+
