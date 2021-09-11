@@ -82,6 +82,43 @@ def show_tt():
     # if request.method == 'POST':
     #     return redirect(url_for('home'))
     return render_template('dathangtt.html', form =form, stb=stb, gia=gia)
+
+@app.route('/goicuoc/dathang',methods=["GET","POST"])
+def show_goicuoc():
+    form = ShowSimTT()
+    tengoi = request.args.get('tengoi')
+    giagoi = request.args.get('giagoi')
+    giagiam = request.args.get('giamgia')
+    quatang = request.args.get('quatang')
+
+    if form.validate_on_submit():
+        tengoi = request.args.get('tengoi')
+        giagoi = int(request.args.get('giagoi'))
+        giagiam = request.args.get('giagiam')
+        quatang = request.args.get('quatang')
+        if giagiam != None:
+            thanhtien = (giagoi - (giagoi * float(giagiam))) + 50000
+        else:
+            thanhtien = giagoi + 60000
+        my_email = "cuongpython2021@gmail.com"
+        password = os.environ.get("NEW_MK")
+
+        your_email = "cuongtq88@gmail.com"
+
+        with smtplib.SMTP("smtp.gmail.com",587) as conection:
+
+            msg = f"Khách hàng {form.hoten.data} \nĐịa chỉ {form.diachi.data} \nSố liên hệ {form.solienhe.data} \nGói Mua {tengoi} \nThành Tiền {thanhtien} "
+            subject = "Đơn hàng"
+            conection.starttls()
+            conection.login(my_email, password)
+            # conection.sendmail(from_addr= my_email, to_addrs=your_email,
+            #                    msg=f"Subject:Hello \n\n {ten} ")
+            fmt = 'From: {}\r\nTo: {}\r\nSubject: {}\r\n{}'
+            conection.sendmail(my_email, your_email,fmt.format(my_email,your_email,subject,msg).encode('utf-8'))
+        return redirect(url_for('chotdontt'))
+    if giagiam == None:
+        return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi))
+    return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi), giagiam=float(giagiam), quatang=quatang)
 @app.route('/')
 def home():
     return render_template('index.html')

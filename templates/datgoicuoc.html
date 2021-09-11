@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+  <title></title>
+  <link href="{{ url_for('static', filename='css/styles1.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href="https: //fonts.googleapis.com/css2? family = Merriweather & display = swap " rel=" stylesheet ">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container container-dathang">
+
+      <div class="vungdathangts">
+    <h2>Thông Tin Đơn Hàng</h2>
+    <p>Gói Cước <span class="stb">{{ tengoi}}</span></p>
+    <p>Giá Gói <span class="stb">{{ '{:,}'.format(giagoi).replace(',', '.')}}</span></p>
+    <p>Giá Sim <span class="stb">50.000đ</span></p>
+          {% if giagiam  %}
+          <p>Giá Gói Sau Khi Giảm {{ (giagiam * 100)|round|int }}% <span class="stb">{{'{:,}'.format(giagoi - (giagoi * giagiam)|round|int).replace(',', '.') }}</span></p>
+          <p>Thành Tiền <span class="stb">{{ '{:,}'.format(((giagoi - (giagoi * giagiam)) + 50000)|round|int).replace(',', '.')}}</span></p>
+            <p>Quà Tặng <span class="stb">{{ quatang}}</span></p>
+          {% else %}
+          <p>Thành Tiền <span class="stb">{{ '{:,}'.format((giagoi + 50000)|round|int).replace(',', '.')}}</span></p>
+           <p>Quà Tặng <span class="stb">{{ quatang}}</span></p>
+          {% endif %}
+
+
+
+      </div>
+        <div class="vungdathangts-1">
+             <form class="" action="{{ url_for('show_goicuoc', tengoi = tengoi, giagoi = giagoi, giagiam = giagiam, quatang = quatang) }}" method="POST">
+      <div class="row row-ts no-gutters">
+          <div class="col-lg-6  cotdathangts">
+
+            {{ wtf.quick_form(form) }}
+          <button type="submit" class="btn btn-primary" value="dathangtgoi">Đặt Hàng</button>
+          </form>
+          </div>
+    </div>
+            </div>
+      </div>
+</body>
+{% include "footer.html" %}
+</html>
