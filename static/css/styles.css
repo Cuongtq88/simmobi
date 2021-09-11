@@ -87,7 +87,11 @@ and (max-device-width : 480px) {
   padding: 20px 20px;
 
 }
-
+.vungdathangtt{
+     border-style: inset;
+    width: 50%;
+    margin: 20px auto 20px auto;
+}
 .timso{
   color: blue;
   font-weight: bolder;
@@ -173,6 +177,14 @@ p{
 .stb{
    color: red;
   font-weight: bold;
+}
+.chitiet-tt{
+    text-align: left;
+    margin-left: 50px;
+    font-size: 1.5rem;
+}
+.vungdathangtt h2{
+    color: blue;
 }
 #icon-mail{
 color: #4682B4;

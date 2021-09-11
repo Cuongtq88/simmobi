@@ -105,9 +105,11 @@
 
       <div class="vungdathangts">
     <h2>Thông Tin Đơn Hàng</h2>
+          <div class="chitiet">
     <p>Bạn đặt mua số <span class="stb">{{ stb}}</span></p>
     <p>Gói Cước <span class="stb">{{ goicuoc}}</span></p>
     <p>Phí Hòa Mạng <span class="stb">60.000đ</span></p>
+          </div>
       </div>
         <div class="vungdathangts-1">
              <form class="" action="{{ url_for('show_ts', stb = stb, goicuoc= goicuoc) }}" method="POST">

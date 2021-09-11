@@ -118,6 +118,10 @@ color: blue;
     width: 50%;
     margin: 20px auto 20px auto;
 }
+.vungdathangts h2{
+    color: blue;
+}
+
 .vungdathangts-1{
     width: 50%;
     background-color: #F3F0D7;
@@ -154,4 +158,8 @@ color: blue;
 
 }
 
-
+.chitiet{
+    text-align: left;
+    margin-left: 50px;
+    font-size: 1.5rem;
+}

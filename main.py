@@ -90,7 +90,7 @@ def show_goicuoc():
     giagoi = request.args.get('giagoi')
     giagiam = request.args.get('giamgia')
     quatang = request.args.get('quatang')
-
+    print(quatang)
     if form.validate_on_submit():
         tengoi = request.args.get('tengoi')
         giagoi = int(request.args.get('giagoi'))
@@ -117,7 +117,7 @@ def show_goicuoc():
             conection.sendmail(my_email, your_email,fmt.format(my_email,your_email,subject,msg).encode('utf-8'))
         return redirect(url_for('chotdontt'))
     if giagiam == None:
-        return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi))
+        return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi), quatang=quatang)
     return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi), giagiam=float(giagiam), quatang=quatang)
 @app.route('/')
 def home():

@@ -20,6 +20,7 @@
 
       <div class="vungdathangts">
     <h2>Thông Tin Đơn Hàng</h2>
+          <div class="chitiet">
     <p>Gói Cước <span class="stb">{{ tengoi}}</span></p>
     <p>Giá Gói <span class="stb">{{ '{:,}'.format(giagoi).replace(',', '.')}}</span></p>
     <p>Giá Sim <span class="stb">50.000đ</span></p>
@@ -31,7 +32,7 @@
           <p>Thành Tiền <span class="stb">{{ '{:,}'.format((giagoi + 50000)|round|int).replace(',', '.')}}</span></p>
            <p>Quà Tặng <span class="stb">{{ quatang}}</span></p>
           {% endif %}
-
+          </div>
 
 
       </div>
