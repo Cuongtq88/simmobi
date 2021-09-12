@@ -4,7 +4,8 @@ flask-bootstrap==3.3.7.1
 WTForms==2.3.3
 flask-sqlalchemy==2.5.1
 Flask-WTF==0.14.3
+pip==21.2.4
 psycopg2-binary==2.9.1
-
+setuptools==58.0.4
 
 

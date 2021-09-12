@@ -8,7 +8,8 @@ import smtplib
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY","8BYkE123fBA6O6donzWlSihBXox7C0sKR6b")
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 Bootstrap(app)
 
 ##CONNECT TO DB
@@ -63,8 +64,8 @@ def show_tt():
         stb = request.args.get('stb')
         gia = request.args.get('gia')
 
-        my_email = "cuongpython2021@gmail.com"
-        password = os.environ.get("NEW_MK")
+        my_email = "donhangsimso@gmail.com"
+        password = "NguyenThiCuc@8383"
 
         your_email = "cuongtq88@gmail.com"
 
@@ -100,8 +101,8 @@ def show_goicuoc():
             thanhtien = (giagoi - (giagoi * float(giagiam))) + 50000
         else:
             thanhtien = giagoi + 60000
-        my_email = "cuongpython2021@gmail.com"
-        password = os.environ.get("NEW_MK")
+        my_email = "donhangsimso.com"
+        password = "NguyenThiCuc@8383"
 
         your_email = "cuongtq88@gmail.com"
 
@@ -269,8 +270,8 @@ def show_ts():
         stb = request.args.get('stb')
         goicuoc = request.args.get('goicuoc')
         print(goicuoc)
-        my_email = "cuongpython2021@gmail.com"
-        password = os.environ.get("NEW_MK")
+        my_email = "donhangsimso@gmail.com"
+        password = "NguyenThiCuc@8383"
 
         your_email = "cuongtq88@gmail.com"
 
