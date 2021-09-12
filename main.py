@@ -11,7 +11,7 @@ app = Flask(__name__)
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 Bootstrap(app)
-
+MK = os.environ.get("NEW_MK")
 ##CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("postgresql://DATABASE_URL", "sqlite:///sim.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -59,29 +59,20 @@ def show_tt():
     form = ShowSimTT()
     stb = request.args.get('stb')
     gia = request.args.get('gia')
-    # print(stb)
     if form.validate_on_submit():
         stb = request.args.get('stb')
         gia = request.args.get('gia')
-
         my_email = "donhangsimso@gmail.com"
-        password = "NguyenThiCuc@8383"
-
+        password = MK
         your_email = "cuongtq88@gmail.com"
-
         with smtplib.SMTP("smtp.gmail.com",587) as conection:
-
             msg = f"Khách hàng {form.hoten.data} \nĐịa chỉ {form.diachi.data} \nSố liên hệ {form.solienhe.data} \nSố mua {stb} \nGiá {gia}"
             subject = "Đơn hàng"
             conection.starttls()
             conection.login(my_email, password)
-            # conection.sendmail(from_addr= my_email, to_addrs=your_email,
-            #                    msg=f"Subject:Hello \n\n {ten} ")
             fmt = 'From: {}\r\nTo: {}\r\nSubject: {}\r\n{}'
             conection.sendmail(my_email, your_email,fmt.format(my_email,your_email,subject,msg).encode('utf-8'))
         return redirect(url_for('chotdontt'))
-    # if request.method == 'POST':
-    #     return redirect(url_for('home'))
     return render_template('dathangtt.html', form =form, stb=stb, gia=gia)
 
 @app.route('/goicuoc/dathang',methods=["GET","POST"])
@@ -91,7 +82,7 @@ def show_goicuoc():
     giagoi = request.args.get('giagoi')
     giagiam = request.args.get('giamgia')
     quatang = request.args.get('quatang')
-    print(quatang)
+
     if form.validate_on_submit():
         tengoi = request.args.get('tengoi')
         giagoi = int(request.args.get('giagoi'))
@@ -102,18 +93,14 @@ def show_goicuoc():
         else:
             thanhtien = giagoi + 60000
         my_email = "donhangsimso.com"
-        password = "NguyenThiCuc@8383"
-
+        password = MK
         your_email = "cuongtq88@gmail.com"
 
         with smtplib.SMTP("smtp.gmail.com",587) as conection:
-
             msg = f"Khách hàng {form.hoten.data} \nĐịa chỉ {form.diachi.data} \nSố liên hệ {form.solienhe.data} \nGói Mua {tengoi} \nThành Tiền {thanhtien} "
             subject = "Đơn hàng"
             conection.starttls()
             conection.login(my_email, password)
-            # conection.sendmail(from_addr= my_email, to_addrs=your_email,
-            #                    msg=f"Subject:Hello \n\n {ten} ")
             fmt = 'From: {}\r\nTo: {}\r\nSubject: {}\r\n{}'
             conection.sendmail(my_email, your_email,fmt.format(my_email,your_email,subject,msg).encode('utf-8'))
         return redirect(url_for('chotdontt'))
@@ -122,6 +109,8 @@ def show_goicuoc():
     return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi), giagiam=float(giagiam), quatang=quatang)
 @app.route('/')
 def home():
+    print("xxx")
+    print(MK)
     return render_template('index.html')
 @app.route('/zalo')
 def contact():
@@ -154,16 +143,11 @@ def tratruoc(page):
         dangso = request.form["cars"]
         socantim = request.form["socantim"]
         dangso_ts = SimSo.query.filter_by(dangso=dangso).all()
-        print("xxx")
         print(dangso_ts)
         if dangso != "All" and socantim == "":
             all_sim = SimSo.query.filter_by(dangso=dangso).paginate(page,pages,error_out=False)
-
         elif dangso == "All" and socantim == "":
             all_sim = SimSo.query.paginate(page,pages,error_out=False)
-
-
-
         elif socantim != "":
             socantim = request.form["socantim"]
             search = "%{}%".format(socantim)
@@ -171,7 +155,6 @@ def tratruoc(page):
         return render_template('tratruoc.html', all_sim=all_sim, dangso=dangso, socantim = socantim)
     dangso = request.args.get('dangso')
     socantim = request.args.get('socantim')
-
     if dangso != "" and dangso !=None and dangso != "All":
         all_sim = SimSo.query.filter_by(dangso=dangso).paginate(page, pages, error_out=False)
         return render_template('tratruoc.html', all_sim=all_sim, dangso=dangso)
@@ -185,51 +168,34 @@ def tratruoc(page):
 @app.route("/trasau", methods=['GET', 'POST'], defaults={"page": 1})
 @app.route('/tracuusotrasau/<int:page>',methods=["GET","POST"])
 def trasau(page):
-
     page = page
     pages = 10
     all_sim = SimSoTraSau.query.filter_by(dangso="09").paginate(page, pages, error_out=False)
-
-
     if request.method == 'POST' and 'cars' in request.form and 'socantim' in request.form:
         socantim = request.form["socantim"]
         dangso = request.form["cars"]
-
         if dangso == "All" and socantim !="":
-
             search = "%{}%".format(socantim)
             all_sim = SimSoTraSau.query.filter(SimSoTraSau.sothuebao.like(search)).paginate(page, pages, error_out=False)
             return render_template('trasau.html', all_sim_ts=all_sim, dangso="All", socantim=socantim)
         elif dangso != "All" and socantim != "":
-
             all_sim = SimSoTraSau.query.filter_by(dangso=dangso).paginate(page, pages, error_out=False)
-
             return render_template('trasau.html', all_sim_ts=all_sim, dangso=dangso, socantim="")
     if request.method == 'POST' and 'cars' in request.form:
-
         page = 1
         dangso = request.form["cars"]
         socantim = request.form["socantim"]
-        # dangso_ts = SimSoTraSau.query.filter_by(dangso=dangso).all()
-        # print("xxx")
-        # print(dangso_ts)
         if dangso != "All" and socantim == "":
-
             all_sim = SimSoTraSau.query.filter_by(dangso=dangso).paginate(page,pages,error_out=False)
-
         elif dangso == "All" and socantim == "":
-
             all_sim = SimSoTraSau.query.paginate(page,pages,error_out=False)
-
         elif socantim != "":
-
             socantim = request.form["socantim"]
             search = "%{}%".format(socantim)
             all_sim = SimSoTraSau.query.filter(SimSoTraSau.sothuebao.like(search)).paginate(page,pages,error_out=False)
         return render_template('trasau.html', all_sim_ts=all_sim, dangso=dangso, socantim = socantim)
     dangso = request.args.get('dangso')
     socantim = request.args.get('socantim')
-
     if dangso != "" and dangso !=None and dangso != "All":
         all_sim = SimSoTraSau.query.filter_by(dangso=dangso).paginate(page, pages, error_out=False)
         return render_template('trasau.html', all_sim_ts=all_sim, dangso=dangso)
@@ -265,24 +231,18 @@ def show_ts():
     form = ShowSimTS()
     stb = request.args.get('stb')
     goicuoc = request.args.get('goicuoc')
-    print("xxx")
     if form.validate_on_submit():
         stb = request.args.get('stb')
         goicuoc = request.args.get('goicuoc')
-        print(goicuoc)
         my_email = "donhangsimso@gmail.com"
-        password = "NguyenThiCuc@8383"
-
+        password = MK
         your_email = "cuongtq88@gmail.com"
 
         with smtplib.SMTP("smtp.gmail.com",587) as conection:
-
             msg = f"Khách hàng {form.hoten.data} \nĐịa chỉ {form.diachi.data} \nSố liên hệ {form.solienhe.data} \nSố mua {stb} \nGói Cước {goicuoc}"
             subject = "Đơn hàng Trả Sau"
             conection.starttls()
             conection.login(my_email, password)
-            # conection.sendmail(from_addr= my_email, to_addrs=your_email,
-            #                    msg=f"Subject:Hello \n\n {ten} ")
             fmt = 'From: {}\r\nTo: {}\r\nSubject: {}\r\n{}'
             conection.sendmail(my_email, your_email,fmt.format(my_email,your_email,subject,msg).encode('utf-8'))
         return redirect(url_for('chotdontt'))
