@@ -22,11 +22,13 @@
     <select name="cars" id="cars" >
       <option  value="{{dangso}}">{{ dangso }}</option>
       <option value="All">All</option>
-      <option value="Sảnh 3 Con">Sảnh 3 con</option>
-      <option value="Tam Cô">Tam Cô</option>
-      <option value="Sảnh 4 Con">Sảnh 4 con</option>
-      <option value="Tứ Quý">Tứ Quý</option>
+      <option value="39-68-79">39-68-79</option>
+      <option value="Sảnh 3 Con">Sảnh 3 Con</option>
+      <option value="Sảnh 4 Con">Sảnh 4 Con</option>
       <option value="ABAB">ABAB</option>
+      <option value="AABB">AABB</option>
+      <option value="Số Tiến">Số Tiến</option>
+      <option value="Dạng Khác">Dạng Khác</option>
     </select>
       <button type="submit" class="btn btn-success">Tìm Kiếm</button><br>
   </div>
@@ -38,6 +40,7 @@
           <th scope="col-3">STT</th>
           <th scope="col-3">Số Thuê Bao</th>
           <th scope="col-3">Giá</th>
+          <th scope="col-3">Khuyến Mãi</th>
           <th scope="col-3">Đặt Mua</th>
         </tr>
       </thead>
@@ -45,8 +48,13 @@
         {% for sim in all_sim.items %}
         <tr>
           <th scope="row">{{loop.index}}</th>
-          <td class="stb">{{ sim.sothuebao }}</td>
-          <td class="price">{{ sim.gia }}</td>
+          <td class="stb">{{ sim.sodinhdang }}</td>
+          <td class="price">{{ '{:,}'.format(sim.gia).replace(',', '.')}}</td>
+          {% if sim.khuyenmai %}
+          <td class="stb">{{ sim.khuyenmai }}</td>
+          {% else %}
+          <td class="stb"></td>
+          {% endif %}
           <td><a href="{{url_for('show_tt', stb=sim.sothuebao, gia = sim.gia) }}"><button type="submit" class="btn btn-primary btn-sm">Đặt Mua </button></a></td>
         </tr>
 

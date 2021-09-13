@@ -20,8 +20,11 @@ db = SQLAlchemy(app)
 class SimSo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sothuebao = db.Column(db.String(250), nullable=False)
-    gia = db.Column(db.String(250), nullable=False)
-    dangso = db.Column(db.String(250), nullable=False)
+    sodinhdang = db.Column(db.String(250), nullable=False)
+    gia = db.Column(db.Integer, nullable=False)
+    khuyenmai = db.Column(db.String(250), nullable=True)
+    dangso = db.Column(db.String(250), nullable=True)
+    sohuu = db.Column(db.String(250), nullable=False)
 class SimSoTraSau(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sothuebao = db.Column(db.String(250), nullable=False)
@@ -129,7 +132,7 @@ def tracuu():
 def tratruoc(page):
     page = page
     pages = 10
-    all_sim = SimSo.query.paginate(page,pages,error_out=False)
+    all_sim = SimSo.query.order_by(SimSo.gia.desc()).paginate(page,pages,error_out=False)
     if request.method == 'POST' and 'cars' in request.form and 'socantim' in request.form:
         socantim = request.form["socantim"]
         dangso = request.form["cars"]
