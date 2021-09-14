@@ -112,9 +112,10 @@ def show_goicuoc():
     return render_template('datgoicuoc.html', form=form, tengoi=tengoi, giagoi=int(giagoi), giagiam=float(giagiam), quatang=quatang)
 @app.route('/')
 def home():
-    print("xxx")
-    print(MK)
-    return render_template('index.html')
+    page = 1
+    pages = 6
+    all_goi = GoiCuoc.query.filter_by(khuyenmai="sales").paginate(page, pages, error_out=False)
+    return render_template('index.html', all_goi=all_goi)
 @app.route('/zalo')
 def contact():
     return render_template('zalo.html')

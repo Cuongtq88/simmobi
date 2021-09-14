@@ -1,5 +1,128 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-{% block content %}
+<head>
+  <meta charset="utf-8">
+  <title>Chuyên cung cấp sim số đẹp - Gói cước giá rẻ</title>
+   <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='4G.ico') }}">
+  <!-- Font Awesome -->
+  <script type="text/javascript" src="http://livejs.com/live.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href = "https: //fonts.googleapis.com/css2? family = Merriweather & display = swap "rel =" stylesheet ">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
 
-{% endblock %}
+<body>
+
+  <section class="title">
+    <div class="row">
+      <div class="col-lg-12">
+          <h1>Mang Ưu Đãi Đến Với Khách Hàng</h1>
+        <p class="noidung">Sim Số Đẹp - Giá Rẻ - Gói Cước Ưu Đãi</p>
+      </div>
+
+    </div>
+  </section>
+<div class="container-fluid px-0">
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('tratruoc',page=1) }}">Sim Trả Trước</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('trasau') }}">Sim Số Đẹp 60K</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('goicuoc', index=1) }}">Gói Cước 4G</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer" target="">Liên Hệ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <section class="bangchuyen">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+       <img class="d-block w-100" src="https://apptotapi1.tk:4099/image/tv.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <a href="{{ url_for('trasau') }}"><img class="d-block w-100" src="https://1.bp.blogspot.com/--4FjOaPHBeA/Xp6aTEFYm-I/AAAAAAAAHM8/PHfoT8I-oJApQAUXnx3H3sHb8QwAXwiHQCLcBGAsYHQ/s1600/Banner%2BMF150.png" alt="Second slide"></a>
+
+    </div>
+    <div class="carousel-item">
+     <a href="{{ url_for('goicuoc') }}"> <img class="d-block w-100" src="https://mobifonemientay.vn/wp-content/uploads/2020/08/Sim-MobiFone-Chia-Se-C%C3%A1ch-%C4%91%C4%83ng-k%C3%BD-4G-Mobi.jpg" alt="Third slide"></a>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  </section>
+  <div class="container khuyenmai-goi">
+    <div class="tilte-goi-index">
+    <h2>Khuyến Mãi 4G Tháng 9</h2>
+      </div>
+  <div class="row vungchua-goicuoc-index">
+     {% for goi in all_goi.items %}
+      <div class="col-lg-4 goicuoc-index">
+        <div class="title-goi">
+          <span class="tengoi">{{ goi.tengoi }}-{{goi.ngaysudung}} Ngày</span><br>
+          <span class="giagoi">{{ '{:,}'.format(goi.gia).replace(',', '.') }}/ lần đăng ký</span><br>
+        </div>
+        <div class="uudaigoi">
+          <span >{{ goi.uudaichinh }}</span><br>
+        </div>
+        <div class="noidunggoi">
+          <span><i class="fas fa-check icon-check"></i> {{ goi.uudaidata }}</span><br>
+            {% if goi.uudaithoai  %}
+          <span><i class="fas fa-check icon-check"></i> {{ goi.uudaithoai }}</span><br>
+            {% endif %}
+        </div>
+          {% if goi.giamgia  %}
+
+          <div class=""><h3 style="color:red">Giảm giá: {{ (goi.giamgia * 100)|round|int}}%</h3></div>
+          <div class=""><h3 style="color:red; font-weight: bold">Chỉ Còn: {{'{:,}'.format(goi.gia - (goi.gia * goi.giamgia)|round|int).replace(',', '.') }}</h3></div>
+          {% endif %}
+          <div class=""><h3 style="color:green">Quà Tặng: {{ goi.quatang}}</h3></div>
+        <div class="datmua">
+          <a href="{{url_for('show_goicuoc', tengoi = goi.tengoi, giagoi = goi.gia, giamgia = goi.giamgia, quatang= goi.quatang) }}"> <button type="submit" name="button" class="btn btn-success btn-datmua">Đặt Mua</button></a>
+        </div>
+      </div>
+        {% endfor %}
+
+</div>
+    <a href="{{ url_for('goicuoc', index=1) }}"> <div class="footer-goicuoc">Xem chi tiết</div></a>
+    </div>
+  <div id="footer">
+{% include "footer.html" %}
+    </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+
+</html>
