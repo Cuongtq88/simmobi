@@ -121,9 +121,9 @@
     <div class="tilte-ts-index">
     <h2>Sim Số Đẹp Chỉ 60.000đ</h2>
       </div>
-    <div class="sotrasau-index">
+    <div class="container sotrasau-index">
       {% for sim in all_sim_ts.items %}
-      <a href="{{url_for('show_ts', stb=sim.sodinhdang, goicuoc = sim.goicuoc) }}"> <span class="kc-2so-ts">{{ sim.sodinhdang }}</span></a>
+      <a href="{{url_for('show_ts', stb=sim.sodinhdang, goicuoc = sim.goicuoc) }}"> <span class="kc-2so-ts">{{ sim.sothuebao }}</span></a>
       {% endfor %}
     </div>
     <a href="{{ url_for('trasau') }}"> <div class="footer-goicuoc">Xem chi tiết</div></a>
