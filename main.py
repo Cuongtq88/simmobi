@@ -61,7 +61,7 @@ class ShowSimTS(FlaskForm):
 def show_tt():
     form = ShowSimTT()
     stb = request.args.get('stb')
-    gia = request.args.get('gia')
+    gia = int(request.args.get('gia'))
     if form.validate_on_submit():
         stb = request.args.get('stb')
         gia = request.args.get('gia')
