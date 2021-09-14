@@ -113,9 +113,10 @@ def show_goicuoc():
 @app.route('/')
 def home():
     page = 1
-    pages = 6
+    pages = 24
     all_goi = GoiCuoc.query.filter_by(khuyenmai="sales").paginate(page, pages, error_out=False)
-    return render_template('index.html', all_goi=all_goi)
+    all_sim = SimSoTraSau.query.filter_by(dangso="09").paginate(page, pages, error_out=False)
+    return render_template('index.html', all_goi=all_goi, all_sim_ts=all_sim)
 @app.route('/zalo')
 def contact():
     return render_template('zalo.html')
