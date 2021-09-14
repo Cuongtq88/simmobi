@@ -16,14 +16,14 @@
   .goicuoc {
     width: 40%;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 700px) {
   .goicuoc {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 .vungchua-goicuoc:after {
