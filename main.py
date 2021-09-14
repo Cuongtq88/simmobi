@@ -95,7 +95,7 @@ def show_goicuoc():
             thanhtien = (giagoi - (giagoi * float(giagiam))) + 50000
         else:
             thanhtien = giagoi + 60000
-        my_email = "donhangsimso.com"
+        my_email = "donhangsimso@gmail.com"
         password = MK
         your_email = "cuongtq88@gmail.com"
 

@@ -41,6 +41,9 @@ and (max-device-width : 480px) {
   width: 100%;
   margin:auto;
 }
+.sotrasau-index{
+    width: 100%;
+}
 .goicuoc-index {
     width: 100%;
     display: block;
@@ -243,11 +246,14 @@ color: #4682B4;
 
 @media screen and (max-width: 1200px) {
   .goicuoc-index {
-    width: 40%;
+    width: 100%;
     display: block;
     margin-bottom: 10px;
     margin-left: 30px;
   }
+}
+.sotrasau-index{
+    width: 100%;
 }
 @media screen and (max-width: 700px) {
   .goicuoc-index {
@@ -256,6 +262,9 @@ color: #4682B4;
     margin-bottom: 10px;
     margin-left: 30px;
   }
+  .sotrasau-index{
+    width: 100%;
+}
 }
 .vungchua-goicuoc-index{
   display: flex;
@@ -320,6 +329,7 @@ color: #4682B4;
     padding: 10px;
 }
 .sotrasau-index{
+    width: 100%;
     color: blue;
     text-align: left;
     font-size: 1.5rem;
