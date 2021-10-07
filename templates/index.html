@@ -85,11 +85,11 @@
   </section>
   <div class="container khuyenmai-goi">
     <div class="tilte-goi-index">
-    <h2>Khuyến Mãi 4G Tháng 9</h2>
+    <h2>Khuyến Mãi 4G Tháng 10</h2>
       </div>
   <div class="row vungchua-goicuoc-index">
      {% for goi in all_goi.items %}
-      <div class="col-lg-4 goicuoc-index">
+      <div class=" goicuoc-index">
         <div class="title-goi">
           <span class="tengoi">{{ goi.tengoi }}-{{goi.ngaysudung}} Ngày</span><br>
           <span class="giagoi">{{ '{:,}'.format(goi.gia).replace(',', '.') }}/ lần đăng ký</span><br>
@@ -122,10 +122,10 @@
     <div class="tilte-ts-index">
     <h2>Sim Số Đẹp Chỉ 60.000đ</h2>
       </div>
-    <div class="row ">
-      <div class="col-lg-12 sotrasau-index">
+    <div class="container sohienthi">
+      <div class="col-lg-12 md-4 sm-4 sotrasau-index">
       {% for sim in all_sim_ts.items %}
-      <a href="{{url_for('show_ts', stb=sim.sodinhdang, goicuoc = sim.goicuoc) }}"> <span class="kc-2so-ts">{{ sim.sothuebao }}</span></a>
+      <a style="color:#0000FF" href="{{url_for('show_ts', stb=sim.sodinhdang, goicuoc = sim.goicuoc) }}"> <span class="kc-2so-ts">{{ sim.sothuebao }}</span></a>
       {% endfor %}
     </div>
   </div>

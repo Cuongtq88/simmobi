@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, render_template, url_for, request, redirect
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
